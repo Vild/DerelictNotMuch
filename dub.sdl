@@ -1,0 +1,18 @@
+name "derelict-notmuch"
+description "A dynamic binding to the notmuch library."
+authors "Dan Printzell"
+license "GPL3"
+targetType "library"
+targetPath "lib"
+targetName "DerelictNotMuch"
+
+configuration "derelict-notmuch-dynamic" {
+    excludedSourceFiles "source/derelict/notmuch/statfun.d"
+    dependency "derelict-util" version="~>3.0.0-beta.1"
+}
+
+configuration "derelict-notmuch-static" {
+    excludedSourceFiles "source/derelict/notmuch/dynload.d"
+    versions "DerelictNotMuch_Static"
+		libs "notmuch"
+}
